@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Tic Tac Toe is a family-friendly fun game for two. Suitable for ages 3 and up! "
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- linking to an external stylesheet -->
+		<link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+
+		<!-- favicons -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./assets/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./assets/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="./assets/site.webmanifest" />
+
+		<!-- google fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto&family=Space+Mono&display=swap"
+			rel="stylesheet"
+		/>
+
+		<title>Play Tic Tac Toe</title>
+	</head>
+
+	<body>
+		<header>
+			<div class="wrapper">
+				<h1>Play Tic Tac Toe</h1>
+			</div>
+		</header>
+		<main>
+			<section>
+				<!-- Tic Tac Toe grid goes here -->
+				<div class="wrapper">
+					<div class="gridTicTacToe">
+						<div class="flex-row">
+							<div class="square" tabindex="1"></div>
+							<div class="square" tabindex="2"></div>
+							<div class="square" tabindex="3"></div>
+						</div>
+						<div class="flex-row">
+							<div class="square" tabindex="4"></div>
+							<div class="square" tabindex="5"></div>
+							<div class="square" tabindex="6"></div>
+						</div>
+						<div class="flex-row">
+							<div class="square" tabindex="7"></div>
+							<div class="square" tabindex="8"></div>
+							<div class="square" tabindex="9"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="instructions">
+				<!-- optional instructions section -->
+				<div class="wrapper">
+					<p class="txtMessage">text message</p>
+				</div>
+			</section>
+			<section class="messages">
+				<div class="wrapper">
+					<input type="button" value="Play Again" id="btnAgain" />
+				</div>
+			</section>
+		</main>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+		<script src="./scripts/scripts.js "></script>
+		<footer class="wrapper">
+			<div>
+				<p>Tic Tac Toe Inc. 2021</p>
+			</div>
+		</footer>
+	</body>
+</html>
