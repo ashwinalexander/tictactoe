@@ -291,7 +291,6 @@ textarea {
 
 /* setup css ends */
 /* styling begins */
-/* color palette: https://coolors.co/cfdbd5-e8eddf-f5cb5c-242423-333533 */
 
 .wrapper {
 	max-width: 1200px;
@@ -302,19 +301,26 @@ textarea {
 
 html {
 	font-size: 62.5%;
-	background-color: #fef9ef;
+	background-color: #fafafa;
 }
+
+/* typography */
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+	font-family: "Concert One", cursive;
+	color: #191919;
+}
+
 p,
 a {
-	font-family: "Nunito", sans-serif;
-	color: #ffcb77;
+	font-family: "Montserrat", sans-serif;
+	color: #191919;
+	font-size: 1.6rem;
 }
 
 h1 {
@@ -325,6 +331,8 @@ h1 {
 .gridTicTacToe {
 	display: flex;
 	flex-direction: column;
+
+	align-items: center;
 }
 
 .playerOneColor {
@@ -351,8 +359,5 @@ header,
 footer {
 	text-align: center;
 	padding: 10px;
-}
-
-header {
-	background-color: #227c9d;
+	background-color: #ffe04f;
 }
