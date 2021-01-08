@@ -4,10 +4,10 @@ const tictactoe = {
 	playerTwoColor: "playerTwoColor",
 	playerOne: "Blue",
 	playerTwo: "Yellow",
-	msgAlreadyClicked: "This square has already been clicked.",
+	msgAlreadyClicked: ", try a different square.",
 	msgCurrentPlayer: " to play now.", //for the "current player to play" message
 	msgBegin: " Begin by clicking any square",
-	msgGameOver: "Game Over",
+	msgGameOver: "That was a tough game, Blue and Yellow! Play again? ",
 };
 
 tictactoe.moveCounter;
@@ -20,12 +20,10 @@ tictactoe.displayMessage = "";
 tictactoe.winner = "";
 
 tictactoe.clickSquare = function () {
-	if (!tictactoe.isGameOver()) {
+	if (!tictactoe.gameOver) {
 		if (tictactoe.IsAlreadyClicked($(this).attr("class"))) {
 			$(".txtMessage").text(
-				tictactoe.msgAlreadyClicked +
-					tictactoe.currentPlayer +
-					tictactoe.msgCurrentPlayer
+				tictactoe.currentPlayer + tictactoe.msgAlreadyClicked
 			);
 		} else {
 			tictactoe.nextColor =
@@ -126,10 +124,10 @@ tictactoe.eventListener = function () {
 
 //checks if a square is already clicked
 tictactoe.IsAlreadyClicked = function (className) {
-	return className.includes(tictactoe.playerOneColor) ||
+	return (
+		className.includes(tictactoe.playerOneColor) ||
 		className.includes(tictactoe.playerTwoColor)
-		? true
-		: false;
+	);
 };
 
 //update who the current and next players are.
@@ -137,8 +135,4 @@ tictactoe.swapPlayer = function () {
 	let tempPlayer = tictactoe.nextPlayer;
 	tictactoe.nextPlayer = tictactoe.currentPlayer;
 	tictactoe.currentPlayer = tempPlayer;
-};
-
-tictactoe.isGameOver = function () {
-	return tictactoe.gameOver;
 };
