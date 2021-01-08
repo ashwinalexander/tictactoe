@@ -13,6 +13,7 @@ const tictactoe = {
 
 tictactoe.grid = [];
 
+tictactoe.randomMode;
 tictactoe.moveCounter;
 tictactoe.gameOver = false;
 tictactoe.currentPlayer = "";
@@ -57,6 +58,7 @@ tictactoe.clickSquare = function () {
 
 				if (tictactoe.moveCounter === 9) {
 					tictactoe.gameOver = true;
+					$("#btnAgain").show();
 					$(".txtMessage").text(tictactoe.msgGameOver);
 				}
 			} else {
@@ -75,7 +77,21 @@ tictactoe.playAgain = function () {
 	tictactoe.reset();
 };
 
-tictactoe.pickRandom = () => {};
+//TODO: complete random mode implementation
+//when the random mode button is clicked
+tictactoe.toggleRandomMode = () => {
+	// if (!tictactoe.randomMode) {
+	// 	//random mode is off, turn it on
+	// 	$("#btnRandom").prop("value", "Turn OFF Random Mode");
+	// 	tictactoe.randomMode = true;
+	// 	console.log("random mode is on");
+	// } else {
+	// 	//random mode is off, turn it on
+	// 	$("#btnRandom").prop("value", "Turn On Random Mode");
+	// 	tictactoe.randomMode = false;
+	// 	console.log("random mode is off");
+	// }
+};
 
 $(document).ready(function () {
 	tictactoe.init();
@@ -108,11 +124,26 @@ tictactoe.eventListener = function () {
 	$("#squareNine").on("click", tictactoe.clickSquare);
 	$("#squareNine").on("keypress", tictactoe.clickSquare);
 
-	//to work on focus and on click
-	$("#btnRandom").on("keypress", tictactoe.pickRandom);
-	$("#btnRandom").on("click", tictactoe.pickRandom);
+	$("#btnRandom").on("keypress", tictactoe.toggleRandomMode);
+	$("#btnRandom").on("click", tictactoe.toggleRandomMode);
 	$("#btnAgain").on("keypress", tictactoe.playAgain);
 	$("#btnAgain").on("click", tictactoe.playAgain);
+
+	//TODO: Complete Random Mode implementation
+	// $(".gridTicTacToe").on("click", function (e) {
+	// 	//proceed only if random mode is turned on
+	// 	if (tictactoe.randomMode) {
+	// 		//only act if this is outside the squares
+	// 		if (!$(e.target).hasClass("square")) {
+	// 			tictactoe.pickRandomSquare();
+	// 		}
+	// 	}
+	// });
+};
+
+//random mode logic
+tictactoe.pickRandomSquare = function () {
+	console.log(tictactoe.grid);
 };
 
 //checks if a square is already clicked
@@ -163,7 +194,7 @@ tictactoe.runChecks = function () {
 			tictactoe.grid[1][1] === tictactoe.grid[2][0])
 	) {
 		tictactoe.gameOver = true;
-		$("#btnAgain").toggle();
+		$("#btnAgain").show();
 
 		return true;
 	} else {
@@ -173,6 +204,8 @@ tictactoe.runChecks = function () {
 
 //Reset the game
 tictactoe.reset = function () {
+	//todo:random mode
+	tictactoe.randomMode = false;
 	$("#btnAgain").toggle();
 	tictactoe.currentPlayer = tictactoe.playerOne;
 	tictactoe.nextPlayer = tictactoe.playerTwo;

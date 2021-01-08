@@ -361,11 +361,13 @@ h1 {
 }
 
 .gridTicTacToe {
-	padding: 15px;
 	display: flex;
 	flex-direction: column;
-
 	align-items: center;
+	/* //TODO: Complete Random Mode Implementation
+	background-color: #e5fce5; */
+
+	padding: 15px;
 }
 
 .playerOneColor {
@@ -388,8 +390,8 @@ h1 {
 	flex-direction: row;
 }
 
-.txtMessage {
-	padding: 10px;
+.txtMessage,
+.txtRandom {
 	text-align: center;
 }
 header,
@@ -414,6 +416,10 @@ footer {
 @media (max-width: 390px) {
 	h1 {
 		font-size: 4rem;
+	}
+	input[type="button"],
+	p {
+		font-size: 1.3rem;
 	}
 }
 
