@@ -8,6 +8,7 @@ const tictactoe = {
 	msgCurrentPlayer: " to play now.", //for the "current player to play" message
 	msgBegin: " Begin by clicking any square",
 	msgGameOver: "That was a tough game, Blue and Yellow! Play again? ",
+	msgWinningMessage: " wins!",
 };
 
 tictactoe.moveCounter;
@@ -19,51 +20,59 @@ tictactoe.currentScore = 0;
 tictactoe.displayMessage = "";
 tictactoe.winner = "";
 
+//when a Square is clicked,
 tictactoe.clickSquare = function () {
+	//proceed only if the game is not over
+
 	if (!tictactoe.gameOver) {
+		//check if the square has already been clicked
+
 		if (tictactoe.IsAlreadyClicked($(this).attr("class"))) {
 			$(".txtMessage").text(
 				tictactoe.currentPlayer + tictactoe.msgAlreadyClicked
 			);
-		} else {
+		}
+		//add the player's color to the clicked square and switch players
+		else {
 			tictactoe.nextColor =
 				tictactoe.nextColor === tictactoe.playerOneColor
 					? tictactoe.playerTwoColor
 					: tictactoe.playerOneColor;
 
+			//paint color onto square
 			$(this).addClass(tictactoe.nextColor);
-			tictactoe.swapPlayer();
 
-			$(".txtMessage").text(
-				tictactoe.currentPlayer + tictactoe.msgCurrentPlayer
-			);
-			tictactoe.moveCounter += 1;
+			if (!tictactoe.checkForWinningMove()) {
+				tictactoe.swapPlayer();
 
-			if (tictactoe.moveCounter === 9) {
-				tictactoe.gameOver = true;
-				$(".txtMessage").text(tictactoe.msgGameOver);
+				$(".txtMessage").text(
+					tictactoe.currentPlayer + tictactoe.msgCurrentPlayer
+				);
+
+				//increment the counter after the move
+				tictactoe.moveCounter += 1;
+
+				if (tictactoe.moveCounter === 9) {
+					tictactoe.gameOver = true;
+					$(".txtMessage").text(tictactoe.msgGameOver);
+				}
+			} else {
+				$(".txtMessage").text(
+					tictactoe.currentPlayer + tictactoe.msgWinningMessage
+				);
 			}
 		}
 	} else {
-		$(".txtMessage").text(tictactoe.msgGameOver);
+		//game over, do nothing
 	}
-	// check if it has blue or yellow class
-	// if no, add class
-	// if no, compute
-	// if yes, put message  and return
-	// if(String.con
-	// console.log(document.activeElement.className);
 };
 
 //Reset score, Restore to default for replay
 tictactoe.playAgain = function () {
-	//reset the score
-	//clear the squares
-	//clear the text message
 	tictactoe.reset();
 };
 
-tictactoe.pickRandom = function () {
+tictactoe.pickRandom = () => {
 	console.log("random");
 };
 
@@ -71,8 +80,62 @@ $(document).ready(function () {
 	tictactoe.init();
 });
 
+//initialising everything
+tictactoe.init = function () {
+	tictactoe.eventListener();
+	tictactoe.reset();
+};
+
+//setting up event listeners
+tictactoe.eventListener = function () {
+	$(".squareOne").on("click", tictactoe.clickSquare);
+	$(".squareOne").on("keypress", tictactoe.clickSquare);
+	$(".squareTwo").on("click", tictactoe.clickSquare);
+	$(".squareTwo").on("keypress", tictactoe.clickSquare);
+	$(".squareThree").on("click", tictactoe.clickSquare);
+	$(".squareThree").on("keypress", tictactoe.clickSquare);
+	$(".squareFour").on("click", tictactoe.clickSquare);
+	$(".squareFour").on("keypress", tictactoe.clickSquare);
+	$(".squareFive").on("click", tictactoe.clickSquare);
+	$(".squareFive").on("keypress", tictactoe.clickSquare);
+	$(".squareSix").on("click", tictactoe.clickSquare);
+	$(".squareSix").on("keypress", tictactoe.clickSquare);
+	$(".squareSeven").on("click", tictactoe.clickSquare);
+	$(".squareSeven").on("keypress", tictactoe.clickSquare);
+	$(".squareEight").on("click", tictactoe.clickSquare);
+	$(".squareEight").on("keypress", tictactoe.clickSquare);
+	$(".squareNine").on("click", tictactoe.clickSquare);
+	$(".squareNine").on("keypress", tictactoe.clickSquare);
+
+	//to work on focus and on click
+	$("#btnRandom").on("keypress", tictactoe.pickRandom);
+	$("#btnRandom").on("click", tictactoe.pickRandom);
+	$("#btnAgain").on("keypress", tictactoe.playAgain);
+	$("#btnAgain").on("click", tictactoe.playAgain);
+};
+
+//checks if a square is already clicked
+tictactoe.IsAlreadyClicked = function (className) {
+	return (
+		className.includes(tictactoe.playerOneColor) ||
+		className.includes(tictactoe.playerTwoColor)
+	);
+};
+
+//Update who the current and next players are.
+tictactoe.swapPlayer = function () {
+	let tempPlayer = tictactoe.nextPlayer;
+	tictactoe.nextPlayer = tictactoe.currentPlayer;
+	tictactoe.currentPlayer = tempPlayer;
+};
+
+//checks if a winning move has been made
+tictactoe.checkForWinningMove = function () {
+	return false;
+};
+
+//Reset the game
 tictactoe.reset = function () {
-	console.log("reset and init");
 	tictactoe.currentPlayer = tictactoe.playerOne;
 	tictactoe.nextPlayer = tictactoe.playerTwo;
 	tictactoe.nextColor = tictactoe.playerTwo;
@@ -86,53 +149,4 @@ tictactoe.reset = function () {
 	//clear square colors
 	$("." + tictactoe.playerOneColor).removeClass(tictactoe.playerOneColor);
 	$("." + tictactoe.playerTwoColor).removeClass(tictactoe.playerTwoColor);
-};
-
-//initialising everything
-tictactoe.init = function () {
-	tictactoe.eventListener();
-	tictactoe.reset();
-};
-
-//setting up event listeners
-tictactoe.eventListener = function () {
-	$(".squareOne").on("click", this.clickSquare);
-	$(".squareOne").on("keypress", this.clickSquare);
-	$(".squareTwo").on("click", this.clickSquare);
-	$(".squareTwo").on("keypress", this.clickSquare);
-	$(".squareThree").on("click", this.clickSquare);
-	$(".squareThree").on("keypress", this.clickSquare);
-	$(".squareFour").on("click", this.clickSquare);
-	$(".squareFour").on("keypress", this.clickSquare);
-	$(".squareFive").on("click", this.clickSquare);
-	$(".squareFive").on("keypress", this.clickSquare);
-	$(".squareSix").on("click", this.clickSquare);
-	$(".squareSix").on("keypress", this.clickSquare);
-	$(".squareSeven").on("click", this.clickSquare);
-	$(".squareSeven").on("keypress", this.clickSquare);
-	$(".squareEight").on("click", this.clickSquare);
-	$(".squareEight").on("keypress", this.clickSquare);
-	$(".squareNine").on("click", this.clickSquare);
-	$(".squareNine").on("keypress", this.clickSquare);
-
-	//to work on focus and on click
-	$("#btnRandom").on("keypress", this.pickRandom);
-	$("#btnRandom").on("click", this.pickRandom);
-	$("#btnAgain").on("keypress", this.playAgain);
-	$("#btnAgain").on("click", this.playAgain);
-};
-
-//checks if a square is already clicked
-tictactoe.IsAlreadyClicked = function (className) {
-	return (
-		className.includes(tictactoe.playerOneColor) ||
-		className.includes(tictactoe.playerTwoColor)
-	);
-};
-
-//update who the current and next players are.
-tictactoe.swapPlayer = function () {
-	let tempPlayer = tictactoe.nextPlayer;
-	tictactoe.nextPlayer = tictactoe.currentPlayer;
-	tictactoe.currentPlayer = tempPlayer;
 };
