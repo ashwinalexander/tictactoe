@@ -11,6 +11,8 @@ const tictactoe = {
 	msgWinningMessage: " wins!",
 };
 
+tictactoe.grid = [];
+
 tictactoe.moveCounter;
 tictactoe.gameOver = false;
 tictactoe.currentPlayer = "";
@@ -42,6 +44,9 @@ tictactoe.clickSquare = function () {
 			//paint color onto square
 			$(this).addClass(tictactoe.nextColor);
 
+			tictactoe.grid[this.getAttribute("data-x")][this.getAttribute("data-y")] =
+				tictactoe.currentPlayer;
+
 			if (!tictactoe.checkForWinningMove()) {
 				tictactoe.swapPlayer();
 
@@ -55,6 +60,7 @@ tictactoe.clickSquare = function () {
 				if (tictactoe.moveCounter === 9) {
 					tictactoe.gameOver = true;
 					$(".txtMessage").text(tictactoe.msgGameOver);
+					console.log(tictactoe.grid);
 				}
 			} else {
 				$(".txtMessage").text(
@@ -88,24 +94,24 @@ tictactoe.init = function () {
 
 //setting up event listeners
 tictactoe.eventListener = function () {
-	$(".squareOne").on("click", tictactoe.clickSquare);
-	$(".squareOne").on("keypress", tictactoe.clickSquare);
-	$(".squareTwo").on("click", tictactoe.clickSquare);
-	$(".squareTwo").on("keypress", tictactoe.clickSquare);
-	$(".squareThree").on("click", tictactoe.clickSquare);
-	$(".squareThree").on("keypress", tictactoe.clickSquare);
-	$(".squareFour").on("click", tictactoe.clickSquare);
-	$(".squareFour").on("keypress", tictactoe.clickSquare);
-	$(".squareFive").on("click", tictactoe.clickSquare);
-	$(".squareFive").on("keypress", tictactoe.clickSquare);
-	$(".squareSix").on("click", tictactoe.clickSquare);
-	$(".squareSix").on("keypress", tictactoe.clickSquare);
-	$(".squareSeven").on("click", tictactoe.clickSquare);
-	$(".squareSeven").on("keypress", tictactoe.clickSquare);
-	$(".squareEight").on("click", tictactoe.clickSquare);
-	$(".squareEight").on("keypress", tictactoe.clickSquare);
-	$(".squareNine").on("click", tictactoe.clickSquare);
-	$(".squareNine").on("keypress", tictactoe.clickSquare);
+	$("#squareOne").on("click", tictactoe.clickSquare);
+	$("#squareOne").on("keypress", tictactoe.clickSquare);
+	$("#squareTwo").on("click", tictactoe.clickSquare);
+	$("#squareTwo").on("keypress", tictactoe.clickSquare);
+	$("#squareThree").on("click", tictactoe.clickSquare);
+	$("#squareThree").on("keypress", tictactoe.clickSquare);
+	$("#squareFour").on("click", tictactoe.clickSquare);
+	$("#squareFour").on("keypress", tictactoe.clickSquare);
+	$("#squareFive").on("click", tictactoe.clickSquare);
+	$("#squareFive").on("keypress", tictactoe.clickSquare);
+	$("#squareSix").on("click", tictactoe.clickSquare);
+	$("#squareSix").on("keypress", tictactoe.clickSquare);
+	$("#squareSeven").on("click", tictactoe.clickSquare);
+	$("#squareSeven").on("keypress", tictactoe.clickSquare);
+	$("#squareEight").on("click", tictactoe.clickSquare);
+	$("#squareEight").on("keypress", tictactoe.clickSquare);
+	$("#squareNine").on("click", tictactoe.clickSquare);
+	$("#squareNine").on("keypress", tictactoe.clickSquare);
 
 	//to work on focus and on click
 	$("#btnRandom").on("keypress", tictactoe.pickRandom);
@@ -131,7 +137,41 @@ tictactoe.swapPlayer = function () {
 
 //checks if a winning move has been made
 tictactoe.checkForWinningMove = function () {
-	return false;
+	//we need a minimum of 5 moves to have the possibility to win
+	if (tictactoe.moveCounter < 4) {
+		return false;
+	} else {
+		return tictactoe.runChecks();
+	}
+};
+
+tictactoe.runChecks = function () {
+	if (
+		//all three rows
+		(tictactoe.grid[0][0] === tictactoe.grid[0][1] &&
+			tictactoe.grid[0][1] === tictactoe.grid[0][2]) ||
+		(tictactoe.grid[1][0] === tictactoe.grid[1][1] &&
+			tictactoe.grid[1][1] === tictactoe.grid[1][2]) ||
+		(tictactoe.grid[2][0] === tictactoe.grid[2][1] &&
+			tictactoe.grid[2][1] === tictactoe.grid[2][2]) ||
+		//all three columns
+		(tictactoe.grid[0][0] === tictactoe.grid[1][0] &&
+			tictactoe.grid[1][0] === tictactoe.grid[2][0]) ||
+		(tictactoe.grid[0][1] === tictactoe.grid[1][1] &&
+			tictactoe.grid[1][1] === tictactoe.grid[2][1]) ||
+		(tictactoe.grid[0][2] === tictactoe.grid[1][2] &&
+			tictactoe.grid[1][2] === tictactoe.grid[2][2]) ||
+		(tictactoe.grid[0][0] === tictactoe.grid[1][1] &&
+			tictactoe.grid[1][1] === tictactoe.grid[2][2]) ||
+		(tictactoe.grid[0][2] === tictactoe.grid[1][1] &&
+			tictactoe.grid[1][1] === tictactoe.grid[2][0])
+	) {
+		tictactoe.gameOver = true;
+		console.log(tictactoe.grid);
+		return true;
+	} else {
+		return false;
+	}
 };
 
 //Reset the game
@@ -145,6 +185,12 @@ tictactoe.reset = function () {
 
 	tictactoe.moveCounter = 0;
 	tictactoe.gameOver = false;
+
+	tictactoe.grid = [
+		[1, 2, 3],
+		[4, 5, 6],
+		[7, 8, 9],
+	];
 
 	//clear square colors
 	$("." + tictactoe.playerOneColor).removeClass(tictactoe.playerOneColor);

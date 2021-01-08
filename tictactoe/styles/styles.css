@@ -327,18 +327,9 @@ footer {
 	background-color: yellow;
 }
 
-.squareOne,
-.squareTwo,
-.squareThree,
-.squareFour,
-.squareFive,
-.squareSix,
-.squareSeven,
-.squareEight,
-.squareNine {
+.square {
 	width: 100px;
 	height: 100px;
-
 	border: 2px solid lightblue;
 	margin: 5px;
 }
