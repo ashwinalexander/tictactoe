@@ -4,11 +4,11 @@ const tictactoe = {
 	playerTwoColor: "playerTwoColor",
 	playerOne: "Blue",
 	playerTwo: "Yellow",
-	msgAlreadyClicked: ", try a different square",
-	msgCurrentPlayer: " to play now.", //for the "current player to play" message
-	msgBegin: " Begin by clicking any square",
+	msgAlreadyClicked: ", try a different square.",
+	msgCurrentPlayer: " to play.", //for the "current player to play" message
+	msgBegin: " Begin by clicking any square.",
 	msgGameOver: "That was a tough game, Blue and Yellow! Play again? ",
-	msgWinningMessage: " wins! Share the good news on the Internet! ",
+	msgWinningMessage: " wins - Tell your friends! ",
 };
 
 tictactoe.grid = [];
@@ -166,6 +166,7 @@ tictactoe.runChecks = function () {
 			tictactoe.grid[1][1] === tictactoe.grid[2][0])
 	) {
 		tictactoe.gameOver = true;
+
 		return true;
 	} else {
 		return false;
