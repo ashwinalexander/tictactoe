@@ -9,7 +9,10 @@
 		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta property="og:url" content="https://localhost" />
+		<meta
+			property="og:url"
+			content="https://ashwinalexander.github.io/tictactoe/"
+		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Play TIC TAC TOE" />
 		<meta
@@ -53,18 +56,13 @@
 	<body>
 		<!-- Load Facebook SDK for JavaScript -->
 		<div id="fb-root"></div>
-		<script>
-			(function (d, s, id) {
-				var js,
-					fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src =
-					"https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-				fjs.parentNode.insertBefore(js, fjs);
-			})(document, "script", "facebook-jssdk");
-		</script>
+		<script
+			async
+			defer
+			crossorigin="anonymous"
+			src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=316676589655303&autoLogAppEvents=1"
+			nonce="jkSmpAAB"
+		></script>
 		<header>
 			<div class="wrapper">
 				<h1>Play Tic Tac Toe</h1>
@@ -161,9 +159,17 @@
 					<!-- Your share button code -->
 					<div
 						class="fb-share-button"
-						data-href="localhost.com"
+						data-href="https://ashwinalexander.github.io/tictactoe/"
 						data-layout="button_count"
-					></div>
+						data-size="small"
+					>
+						<a
+							target="_blank"
+							href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fashwinalexander.github.io%2Ftictactoe%2F&amp;src=sdkpreparse"
+							class="fb-xfbml-parse-ignore"
+							>Share</a
+						>
+					</div>
 				</div>
 			</section>
 		</main>
