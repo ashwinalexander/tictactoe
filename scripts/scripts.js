@@ -58,7 +58,6 @@ tictactoe.clickSquare = function () {
 				if (tictactoe.moveCounter === 9) {
 					tictactoe.gameOver = true;
 					$(".txtMessage").text(tictactoe.msgGameOver);
-					console.log(tictactoe.grid);
 				}
 			} else {
 				$(".txtMessage").text(
@@ -76,9 +75,7 @@ tictactoe.playAgain = function () {
 	tictactoe.reset();
 };
 
-tictactoe.pickRandom = () => {
-	console.log("random");
-};
+tictactoe.pickRandom = () => {};
 
 $(document).ready(function () {
 	tictactoe.init();
