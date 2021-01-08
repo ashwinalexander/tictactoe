@@ -327,15 +327,19 @@ footer {
 	background-color: yellow;
 }
 
-.unPlayedSquare {
-	background-color: wheat;
-}
-
-.square {
+.squareOne,
+.squareTwo,
+.squareThree,
+.squareFour,
+.squareFive,
+.squareSix,
+.squareSeven,
+.squareEight,
+.squareNine {
 	width: 100px;
 	height: 100px;
-	background-color: yellow;
-	border: 2px solid red;
+	/* background-color: yellow; */
+	border: 2px solid lightblue;
 	margin: 5px;
 }
 

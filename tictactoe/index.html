@@ -42,7 +42,6 @@
 
 		<title>Play Tic Tac Toe</title>
 	</head>
-
 	<body>
 		<header>
 			<div class="wrapper">
@@ -55,19 +54,19 @@
 				<div class="wrapper">
 					<div class="gridTicTacToe">
 						<div class="flex-row">
-							<div class="square" tabindex="1"></div>
-							<div class="square" tabindex="2"></div>
-							<div class="square" tabindex="3"></div>
+							<div class="squareOne" tabindex="1"></div>
+							<div class="squareTwo" tabindex="2"></div>
+							<div class="squareThree" tabindex="3"></div>
 						</div>
 						<div class="flex-row">
-							<div class="square" tabindex="4"></div>
-							<div class="square" tabindex="5"></div>
-							<div class="square" tabindex="6"></div>
+							<div class="squareFour" tabindex="4"></div>
+							<div class="squareFive" tabindex="5"></div>
+							<div class="squareSix" tabindex="6"></div>
 						</div>
 						<div class="flex-row">
-							<div class="square" tabindex="7"></div>
-							<div class="square" tabindex="8"></div>
-							<div class="square" tabindex="9"></div>
+							<div class="squareSeven" tabindex="7"></div>
+							<div class="squareEight" tabindex="8"></div>
+							<div class="squareNine" tabindex="9"></div>
 						</div>
 					</div>
 				</div>
@@ -75,11 +74,12 @@
 			<section class="instructions">
 				<!-- optional instructions section -->
 				<div class="wrapper">
-					<p class="txtMessage">text message</p>
+					<p class="txtMessage"></p>
 				</div>
 			</section>
 			<section class="messages">
 				<div class="wrapper">
+					<input type="button" value="Random Square" id="btnRandom" />
 					<input type="button" value="Play Again" id="btnAgain" />
 				</div>
 			</section>
