@@ -9,3 +9,8 @@
 8. If a player matches three consecutive cells of their own color, the player is announced the winner. 
 9. The winner can share their win on facebook and twitter. 
 10. The players can play again if they'd like to. 
+
+
+# Implementation
+1. This game was created using JavaScript, HTML and CSS
+2. Random Mode - where the players can have a random square chosen for them when they click in any part of the grid except the squares - is a feature under development. 
