@@ -161,13 +161,13 @@ tictactoe.runChecks = function () {
 			tictactoe.grid[1][1] === tictactoe.grid[2][1]) ||
 		(tictactoe.grid[0][2] === tictactoe.grid[1][2] &&
 			tictactoe.grid[1][2] === tictactoe.grid[2][2]) ||
+		//two diagonals
 		(tictactoe.grid[0][0] === tictactoe.grid[1][1] &&
 			tictactoe.grid[1][1] === tictactoe.grid[2][2]) ||
 		(tictactoe.grid[0][2] === tictactoe.grid[1][1] &&
 			tictactoe.grid[1][1] === tictactoe.grid[2][0])
 	) {
 		tictactoe.gameOver = true;
-		console.log(tictactoe.grid);
 		return true;
 	} else {
 		return false;

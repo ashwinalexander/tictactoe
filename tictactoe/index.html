@@ -9,6 +9,14 @@
 		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:url" content="https://localhost" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Play TIC TAC TOE" />
+		<meta property="og:description" content="Your description" />
+		<meta
+			property="og:image"
+			content="https://www.your-domain.com/path/image.jpg"
+		/>
 
 		<!-- linking to an external stylesheet -->
 		<link rel="stylesheet" type="text/css" href="./styles/styles.css" />
@@ -40,9 +48,23 @@
 			rel="stylesheet"
 		/>
 
-		<title>Play Tic Tac Toe</title>
+		<title>Play TIC TAC TOE</title>
 	</head>
 	<body>
+		<!-- Load Facebook SDK for JavaScript -->
+		<div id="fb-root"></div>
+		<script>
+			(function (d, s, id) {
+				var js,
+					fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s);
+				js.id = id;
+				js.src =
+					"https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+				fjs.parentNode.insertBefore(js, fjs);
+			})(document, "script", "facebook-jssdk");
+		</script>
 		<header>
 			<div class="wrapper">
 				<h1>Play Tic Tac Toe</h1>
@@ -135,11 +157,34 @@
 				<div class="wrapper">
 					<input type="button" value="Random Square" id="btnRandom" />
 					<input type="button" value="Play Again" id="btnAgain" />
+					<input type="button" value="Share to Facebook" id="ogBtn" />
+					<!-- Your share button code -->
+					<div
+						class="fb-share-button"
+						data-href="localhost.com"
+						data-layout="button_count"
+					></div>
 				</div>
 			</section>
 		</main>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
 		<script src="./scripts/scripts.js "></script>
+
+		<script>
+			document.getElementById("ogBtn").onclick = function () {
+				FB.ui(
+					{
+						display: "popup",
+						method: "share_open_graph",
+						action_type: "og.likes",
+						action_properties: JSON.stringify({
+							object: "https://developers.facebook.com/docs/",
+						}),
+					},
+					function (response) {}
+				);
+			};
+		</script>
 		<footer class="wrapper">
 			<div>
 				<p>Tic Tac Toe Inc. 2021</p>
