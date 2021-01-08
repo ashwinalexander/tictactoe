@@ -163,6 +163,7 @@ tictactoe.runChecks = function () {
 			tictactoe.grid[1][1] === tictactoe.grid[2][0])
 	) {
 		tictactoe.gameOver = true;
+		$("#btnAgain").toggle();
 
 		return true;
 	} else {
@@ -172,6 +173,7 @@ tictactoe.runChecks = function () {
 
 //Reset the game
 tictactoe.reset = function () {
+	$("#btnAgain").toggle();
 	tictactoe.currentPlayer = tictactoe.playerOne;
 	tictactoe.nextPlayer = tictactoe.playerTwo;
 	tictactoe.nextColor = tictactoe.playerTwo;
