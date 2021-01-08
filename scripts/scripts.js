@@ -8,7 +8,7 @@ const tictactoe = {
 	msgCurrentPlayer: " to play now.", //for the "current player to play" message
 	msgBegin: " Begin by clicking any square",
 	msgGameOver: "That was a tough game, Blue and Yellow! Play again? ",
-	msgWinningMessage: " wins!",
+	msgWinningMessage: " wins! Share the good news on the Internet! ",
 };
 
 tictactoe.grid = [];
@@ -18,9 +18,7 @@ tictactoe.gameOver = false;
 tictactoe.currentPlayer = "";
 tictactoe.nextPlayer = "";
 tictactoe.nextColor = "";
-tictactoe.currentScore = 0;
 tictactoe.displayMessage = "";
-tictactoe.winner = "";
 
 //when a Square is clicked,
 tictactoe.clickSquare = function () {
