@@ -296,7 +296,6 @@ textarea {
 	max-width: 1200px;
 	width: 100%;
 	margin: 0px auto;
-	border: 1px solid red;
 }
 
 html {
@@ -346,6 +345,11 @@ input[type="button"]:active {
 .share-buttons,
 .control-buttons {
 	justify-content: center;
+	padding: 0px 20px 10px 20px;
+}
+
+.user-instructions {
+	padding: 0px 20px 10px 20px;
 }
 .control-buttons div,
 .share-buttons div {
@@ -358,7 +362,7 @@ h1 {
 }
 
 .gridTicTacToe {
-	padding: 20px;
+	padding: 15px;
 	display: flex;
 	flex-direction: column;
 
@@ -374,8 +378,8 @@ h1 {
 }
 
 .square {
-	width: 100px;
-	height: 100px;
+	width: 83px;
+	height: 83px;
 	border: 2px solid lightblue;
 	margin: 5px;
 }
@@ -392,6 +396,6 @@ h1 {
 header,
 footer {
 	text-align: center;
-	padding: 10px;
+	padding: 15px;
 	background-color: #ffe04f;
 }
