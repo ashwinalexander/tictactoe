@@ -13,4 +13,6 @@
 
 # Implementation
 1. This game was created using JavaScript, HTML and CSS
-2. Random Mode - where the players can have a random square chosen for them when they click in any part of the grid except the squares - is a feature under development. 
+2. This game is accessible - and can be played using a mouse or a keyboard. 
+3. This game is full responsibe - and can be played on any device of screen size greater than 320 px. 
+4. Random Mode - where the players can have a random square chosen for them when they click in any part of the grid except the squares - is a feature under development. 
