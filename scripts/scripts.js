@@ -4,7 +4,7 @@ const tictactoe = {
 	playerTwoColor: "playerTwoColor",
 	playerOne: "Blue",
 	playerTwo: "Yellow",
-	msgAlreadyClicked: ", try a different square.",
+	msgAlreadyClicked: ", try a different square",
 	msgCurrentPlayer: " to play now.", //for the "current player to play" message
 	msgBegin: " Begin by clicking any square",
 	msgGameOver: "That was a tough game, Blue and Yellow! Play again? ",

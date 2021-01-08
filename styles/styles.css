@@ -311,9 +311,11 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-	font-family: "Concert One", cursive;
+h6,
+input[type="button"] {
+	font-family: "Space Mono", monospace;
 	color: #191919;
+	font-weight: 900;
 }
 
 p,
@@ -321,14 +323,41 @@ a {
 	font-family: "Montserrat", sans-serif;
 	color: #191919;
 	font-size: 1.6rem;
+	font-weight: 900;
+}
+
+input[type="button"] {
+	font-size: 1.6rem;
+	font-weight: bold;
+	text-align: center;
+
+	padding: 10px;
+	border: 4px solid transparent;
+	background-color: #ffe04f;
+	color: #191919;
+}
+
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="button"]:active {
+	background-color: #ffd25a;
+}
+
+.share-buttons {
+	justify-content: center;
+}
+
+.share-buttons div {
+	padding: 5px;
 }
 
 h1 {
-	font-size: 6rem;
+	font-size: 5rem;
 	text-transform: uppercase;
 }
 
 .gridTicTacToe {
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
 
@@ -340,7 +369,7 @@ h1 {
 }
 
 .playerTwoColor {
-	background-color: yellow;
+	background-color: #ffe04f;
 }
 
 .square {
@@ -355,6 +384,10 @@ h1 {
 	flex-direction: row;
 }
 
+.txtMessage {
+	padding: 10px;
+	text-align: center;
+}
 header,
 footer {
 	text-align: center;

@@ -28,7 +28,7 @@
 
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Montserrat&family=Space+Mono&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -70,7 +70,7 @@
 		<header>
 			<div class="wrapper">
 				<div class="title">
-					<h1>Play Tic Tac Toe</h1>
+					<h1>Tic Tac Toe</h1>
 				</div>
 			</div>
 		</header>
@@ -157,40 +157,46 @@
 					<p class="txtMessage"></p>
 				</div>
 			</section>
+			<!-- fb and twitter code to share results -->
+			<section class="share">
+				<div class="wrapper">
+					<div class="share-buttons flex-row">
+						<div
+							class="fb-share-button"
+							data-href="https://ashwinalexander.github.io/tictactoe/"
+							data-layout="button_count"
+							data-size="small"
+						>
+							<a
+								target="_blank"
+								href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fashwinalexander.github.io%2Ftictactoe%2F&amp;src=sdkpreparse"
+								class="fb-xfbml-parse-ignore"
+								quote="test"
+								>Share</a
+							>
+						</div>
+						<div>
+							<a
+								href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+								class="twitter-share-button"
+								data-text="I just won a game of tic tac toe! "
+								data-url="https://ashwinalexander.github.io/tictactoe/"
+								data-show-count="false"
+								>Tweet</a
+							>
+						</div>
+						<script
+							async
+							src="https://platform.twitter.com/widgets.js"
+							charset="utf-8"
+						></script>
+					</div>
+				</div>
+			</section>
 			<section class="messages">
 				<div class="wrapper">
 					<input type="button" value="Random Square" id="btnRandom" />
 					<input type="button" value="Play Again" id="btnAgain" />
-
-					<!-- Your share button code -->
-
-					<div
-						class="fb-share-button"
-						data-href="https://ashwinalexander.github.io/tictactoe/"
-						data-layout="button_count"
-						data-size="small"
-					>
-						<a
-							target="_blank"
-							href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fashwinalexander.github.io%2Ftictactoe%2F&amp;src=sdkpreparse"
-							class="fb-xfbml-parse-ignore"
-							quote="test"
-							>Share</a
-						>
-					</div>
-					<a
-						href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-						class="twitter-share-button"
-						data-text="I just won a game of tic tac toe! "
-						data-url="https://ashwinalexander.github.io/tictactoe/"
-						data-show-count="false"
-						>Tweet</a
-					>
-					<script
-						async
-						src="https://platform.twitter.com/widgets.js"
-						charset="utf-8"
-					></script>
 				</div>
 			</section>
 		</main>
