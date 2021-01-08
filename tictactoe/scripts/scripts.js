@@ -2,31 +2,52 @@
 const tictactoe = {
 	playerOneColor: "playerOneColor",
 	playerTwoColor: "playerTwoColor",
-	playerOne: "Yellow",
-	playerTwo: "Blue",
-	msgAlreadyClicked: "This square has already been clicked",
-	msgCurrentPlayer: " to play.",
+	playerOne: "Blue",
+	playerTwo: "Yellow",
+	msgAlreadyClicked: "This square has already been clicked.",
+	msgCurrentPlayer: " to play now.", //for the "current player to play" message
 	msgBegin: " Begin by clicking any square",
+	msgGameOver: "Game Over",
 };
 
+tictactoe.moveCounter;
+tictactoe.gameOver = false;
 tictactoe.currentPlayer = "";
 tictactoe.nextPlayer = "";
 tictactoe.nextColor = "";
 tictactoe.currentScore = 0;
 tictactoe.displayMessage = "";
+tictactoe.winner = "";
 
 tictactoe.clickSquare = function () {
-	if (tictactoe.IsAlreadyClicked($(this).attr("class"))) {
+	if (!tictactoe.isGameOver()) {
+		if (tictactoe.IsAlreadyClicked($(this).attr("class"))) {
+			$(".txtMessage").text(
+				tictactoe.msgAlreadyClicked +
+					tictactoe.currentPlayer +
+					tictactoe.msgCurrentPlayer
+			);
+		} else {
+			tictactoe.nextColor =
+				tictactoe.nextColor === tictactoe.playerOneColor
+					? tictactoe.playerTwoColor
+					: tictactoe.playerOneColor;
+
+			$(this).addClass(tictactoe.nextColor);
+			tictactoe.swapPlayer();
+
+			$(".txtMessage").text(
+				tictactoe.currentPlayer + tictactoe.msgCurrentPlayer
+			);
+			tictactoe.moveCounter += 1;
+
+			if (tictactoe.moveCounter === 9) {
+				tictactoe.gameOver = true;
+				$(".txtMessage").text(tictactoe.msgGameOver);
+			}
+		}
 	} else {
-		tictactoe.nextColor =
-			tictactoe.nextColor === tictactoe.playerOneColor
-				? tictactoe.playerTwoColor
-				: tictactoe.playerOneColor;
-
-		$(this).addClass(tictactoe.nextColor);
-		tictactoe.swapPlayer();
-
-		$(".txtMessage").text(tictactoe.currentPlayer + "to play now");
+		$(".txtMessage").text(tictactoe.msgGameOver);
 	}
 	// check if it has blue or yellow class
 	// if no, add class
@@ -60,6 +81,9 @@ tictactoe.reset = function () {
 	$(".txtMessage").text(
 		tictactoe.currentPlayer + tictactoe.msgCurrentPlayer + tictactoe.msgBegin
 	);
+
+	tictactoe.moveCounter = 0;
+	tictactoe.gameOver = false;
 
 	//clear square colors
 	$("." + tictactoe.playerOneColor).removeClass(tictactoe.playerOneColor);
@@ -108,10 +132,13 @@ tictactoe.IsAlreadyClicked = function (className) {
 		: false;
 };
 
+//update who the current and next players are.
 tictactoe.swapPlayer = function () {
-	// let tempPlayer = tictactoe.nextPlayer;
-	// tictactoe.nextPlayer = tictactoe.currentPlayer;
-	// tictactoe.currentPlayer = tempPlayer;
-	console.log("current " + tictactoe.currentPlayer);
-	console.log("next" + tictactoe.nextPlayer);
+	let tempPlayer = tictactoe.nextPlayer;
+	tictactoe.nextPlayer = tictactoe.currentPlayer;
+	tictactoe.currentPlayer = tempPlayer;
+};
+
+tictactoe.isGameOver = function () {
+	return tictactoe.gameOver;
 };
